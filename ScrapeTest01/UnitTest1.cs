@@ -31,5 +31,83 @@ namespace ScrapeTest01
             Debugger.Break();
 
         }
+
+
+        [Theory]
+        [InlineData("John")]
+        [InlineData("Jason")]
+        public void WithParameter(string name)
+        {
+
+        }
+
+        [Fact(DisplayName ="Scrape Baby Formula")]
+        public async void ScrapeBabyFormula()
+        {
+            string searchURL = @"https://www.chemistwarehouse.com.au/shop-online/1592/the-a2-milk-company";
+            var client = new HttpClient();
+            var result = await client.GetAsync(searchURL);
+            var html = await result.Content.ReadAsStringAsync();
+
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
+
+            var priceNodes = doc.DocumentNode.DescendantsAndSelf().
+                Where(n => n.Name.ToLower() == "a"
+               && n.HasClass("product-container")).ToList();
+
+            var urls = priceNodes.
+                Select(node => node.GetAttributeValue("href", "")).
+                Where(url => url != "").
+                ToList();
+            
+            Debugger.Break();
+        }
+
+        [Fact(DisplayName ="Scrape A2 Baby Formula Prices")]
+        public async void A2BabyFormulaPrice()
+        {
+            string searchURL = @"https://www.chemistwarehouse.com.au/shop-online/1592/the-a2-milk-company";
+            var client = new HttpClient();
+            var result = await client.GetAsync(searchURL);
+            var html = await result.Content.ReadAsStringAsync();
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
+            var priceNodes = doc.DocumentNode.DescendantsAndSelf()
+                .Where(n => n.Name.ToLower() == "a"
+               && n.HasClass("product-container")).ToList();
+
+            var urls = priceNodes.Select(node => node.GetAttributeValue("href", ""))
+                .Where(url => url != "")
+                .ToList();
+
+            
+
+            foreach (var url in urls)
+            {
+                
+                var sortURL = await client.GetAsync(@"https://www.chemistwarehouse.com.au" + url);
+                var finalURL = sortURL.RequestMessage.RequestUri.AbsoluteUri.ToString();
+
+                var resultPrd = await client.GetAsync(finalURL);
+                var htmlPrd = await resultPrd.Content.ReadAsStringAsync();
+                var docPrd = new HtmlDocument();
+                docPrd.LoadHtml(htmlPrd);
+
+                var priceNodesPrd = docPrd.DocumentNode.DescendantsAndSelf().Where(n => n.Name.ToLower()
+            == "div" && n.HasClass("Price")).ToList();
+                //using system.diagnostics
+                //Debugger.Break();c
+
+                string priceRaw = priceNodesPrd.First().InnerText;
+                priceRaw = priceRaw.Replace(" ", "").Replace("\n", "");
+                Debug.WriteLine(priceRaw);
+            }
+
+
+            Debugger.Break();
+
+        }
+
     }
 }
