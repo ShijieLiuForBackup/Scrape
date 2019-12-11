@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapeTest01", "ScrapeTest01\ScrapeTest01.csproj", "{2CF8E027-FD18-461A-8556-8A4C744E900E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scrape.Test", "ScrapeTest01\Scrape.Test.csproj", "{2CF8E027-FD18-461A-8556-8A4C744E900E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrape.Task", "Scrape.Task\Scrape.Task.csproj", "{FED9858A-2EC2-4849-A310-A9CCD11E406A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrape", "Scrape\Scrape.csproj", "{14F77CEC-9398-456A-8728-F96C8A760DC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{2CF8E027-FD18-461A-8556-8A4C744E900E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CF8E027-FD18-461A-8556-8A4C744E900E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CF8E027-FD18-461A-8556-8A4C744E900E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FED9858A-2EC2-4849-A310-A9CCD11E406A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FED9858A-2EC2-4849-A310-A9CCD11E406A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FED9858A-2EC2-4849-A310-A9CCD11E406A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FED9858A-2EC2-4849-A310-A9CCD11E406A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14F77CEC-9398-456A-8728-F96C8A760DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14F77CEC-9398-456A-8728-F96C8A760DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14F77CEC-9398-456A-8728-F96C8A760DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14F77CEC-9398-456A-8728-F96C8A760DC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

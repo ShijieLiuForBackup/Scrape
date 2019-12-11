@@ -8,7 +8,7 @@ using HtmlAgilityPack;
 using System.Linq;
 using System.Net;
 
-namespace ScrapeTest01
+namespace Scrape.Test
 {
     public class  FinalOne
     {
