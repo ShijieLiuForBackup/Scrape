@@ -4,8 +4,9 @@ using System.Net.Http;
 using System.Linq;
 using Xunit;
 using HtmlAgilityPack;
+using Scrape;
 
-namespace ScrapeTest01
+namespace Scrape.Test
 {
     public class UnitTest1
     {
@@ -107,6 +108,14 @@ namespace ScrapeTest01
 
             Debugger.Break();
 
+        }
+
+        [Fact(DisplayName ="Test Json")]
+        public async void TestJson()
+        {
+            RealEstateScraper scraperTest = new RealEstateScraper();
+            var result1 = await scraperTest.GetHouseInMapBoundary();
+            Debugger.Break(); 
         }
 
     }
