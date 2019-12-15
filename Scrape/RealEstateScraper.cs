@@ -16,6 +16,9 @@ namespace Scrape
 
             using (HttpClient client = new HttpClient())
             {
+                //伪装成浏览器的请求
+                client.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36");
+
                 var response = await client.GetAsync(url);
                 var json = await response.Content.ReadAsStringAsync();
                 //我们要测试这个json，现在去Test测试它

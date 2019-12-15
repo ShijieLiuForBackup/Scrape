@@ -110,7 +110,7 @@ namespace Scrape.Test
 
         }
 
-        [Fact(DisplayName ="Test Json")]
+        [Fact(DisplayName ="Grab Json from API")]
         public async void TestJson()
         {
             RealEstateScraper scraperTest = new RealEstateScraper();
